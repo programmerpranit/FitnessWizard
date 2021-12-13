@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/setupFragment">
+
+    <fragment
+        android:id="@+id/exerciseFrag"
+        android:name="com.fitness.wizard.exercise.ui.ExerciseFrag"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.fitness.wizard.runningTracker.ui.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_recipesFrag"
+            app:destination="@id/recipesFrag" />
+        <action
+            android:id="@+id/action_mainFragment_to_exerciseFrag"
+            app:destination="@id/exerciseFrag" />
+        <action
+            android:id="@+id/action_mainFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailFrag"
+        android:name="com.fitness.wizard.diet.ui.fragments.RecipeDetailFrag"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" />
+    <fragment
+        android:id="@+id/recipesFrag"
+        android:name="com.fitness.wizard.diet.ui.fragments.RecipesFrag"
+        android:label="fragment_recipes"
+        tools:layout="@layout/fragment_recipes" >
+        <action
+            android:id="@+id/action_recipesFrag_to_recipeDetailFrag"
+            app:destination="@id/recipeDetailFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.fitness.wizard.core.ui.fragment.SetupFragment"
+        android:label="fragment_setup"
+        tools:layout="@layout/fragment_setup" >
+        <action
+            android:id="@+id/action_setupFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+
+            app:popUpTo="@id/setupFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.fitness.wizard.runningTracker.ui.fragments.StatisticsFragment"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" >
+        <action
+            android:id="@+id/action_statisticsFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.fitness.wizard.runningTracker.ui.fragments.TrackingFragment"
+        android:label="fragment_tracking"
+        tools:layout="@layout/fragment_tracking" >
+        <action
+            android:id="@+id/action_trackingFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
